@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 ._.DS_Store
 GBIF/scripts/._register_ds_gbif.py
+GBIF/scripts/._gbif_config.py
+GBIF/scripts/._gbif_config.py
