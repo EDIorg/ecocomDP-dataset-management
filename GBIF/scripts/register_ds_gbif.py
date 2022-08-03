@@ -1,48 +1,62 @@
 #!/usr/bin/python3
 
+# registration script does 2 things:
+# 1. log into gbif, create a dataset. GBIF's create process returns an identifier
+# 2. record the gbif dataset id in our management file, using dataset's level 2 (dwca) PASTA id as key
+
+# script inputs: 
+# level 2 id to register (must be a dwca, not yet checked!)
+# name of our management file
+
+import argparse
 from functions import create_gbif_dataset
 from functions import log_gbif_id
-
+# maybe import functions individually?
+# from functions import gbif_config
+# from functions import pasta_config
 #######################################  
-# CONFIG
+
+##########
+### parse arguments
+##########
+
+# initialize parser
+parser = argparse.ArgumentParser()
+parser.add_argument("level2", help="id for level 2 dataset (dwca)")
+parser.add_argument("filename", help="name of mgt filename where ids are logged")
+args = parser.parse_args()
+
+level2_id=args.level2
+mgt_filename=args.filename
 
 ##########
 ### configuration settings, GBIF
 ##########
 
-api = "http://api.gbif-uat.org/v1/dataset"
-headers = {'Content-Type': 'application/json'}
+# import config vars from file gbif_config.py
+from gbif_config import api, headers, username, password, organization, installation, registry, public
 
-# not needed for registration script. only used after ingestion ?confirm (reg uses installation key)
-registry = "https://registry.gbif-uat.org/dataset/"
-public =  "https://www.gbif-uat.org/dataset/"
-
-username = "ws_client_demo"
-password = "Demo123"
-
-# GBIF params, from example (could move these to a config)
-organization = "0a16da09-7719-40de-8d4f-56a15ed52fb6" # Test organization
-installation = "92d76df5-3de1-4c89-be03-7a17abad962a" # Test HTTP installation
 
 
 ##########
 ### PASTA config settings
 ##########
-# PASTA endpoint
+# PASTA endpoint - NOT USED HERE
 pasta_api = "https://pasta-s.lternet.edu/package/archive/eml/"
 
 
 ##########
-### Register the dataset
+### Initialize a dataset at GBIF
+# uses no dataset-specific info
 gbif_uuid = create_gbif_dataset(api, installation, organization, username, password, headers)
 
 ##########
 ### Record the registration locally
-df = log_gbif_id('test.csv', 'edi.3', gbif_uuid)
+df = log_gbif_id(mgt_filename, level2_id, gbif_uuid)
 
 ##########
 ### Save edited file
-df.to_csv('test.csv', sep=',', header=True, index=False)
+df.to_csv(mgt_filename, sep=',', header=True, index=False)
 
 
 
