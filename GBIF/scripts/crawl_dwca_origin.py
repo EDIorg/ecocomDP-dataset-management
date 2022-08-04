@@ -34,14 +34,14 @@ mgt_filename = args.filename
 ##########
 
 # import from file gbif_config.py
-from gbif_config import api, headers, username, password, organization, installation, registry, public
+from config_gbif import api, headers, username, password, organization, installation, registry, public
 
 ##########
 ###  config settings, PASTA
 ##########
 
 # import from file pasta_config.py 
-from pasta_config import pasta_api
+from config_pasta import pasta_api
 # pasta_api = "https://pasta-s.lternet.edu/package/archive/eml/"
 
 

@@ -10,7 +10,7 @@
 
 import argparse
 from functions import create_gbif_dataset
-from functions import log_gbif_id
+from functions import log_gbif_uuid
 # maybe import functions individually?
 # from functions import gbif_config
 # from functions import pasta_config
@@ -34,7 +34,7 @@ mgt_filename=args.filename
 ##########
 
 # import config vars from file gbif_config.py
-from gbif_config import api, headers, username, password, organization, installation, registry, public
+from config_gbif import api, headers, username, password, organization, installation, registry, public
 
 
 
@@ -52,7 +52,7 @@ gbif_uuid = create_gbif_dataset(api, installation, organization, username, passw
 
 ##########
 ### Record the registration locally
-df = log_gbif_id(mgt_filename, level2_id, gbif_uuid)
+df = log_gbif_uuid(mgt_filename, level2_id, gbif_uuid)
 
 ##########
 ### Save edited file

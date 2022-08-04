@@ -14,7 +14,7 @@ def pasta_config():
 ###  FUNCTION: log_gbif_id
 ##   sets the value for gbif identifier for a L2 dataset in our registry file
 ##########
-def log_gbif_id(logfile_name, working_L2_dwca, working_gbif_id): 
+def log_gbif_uuid(logfile_name, working_L2_dwca, working_gbif_id): 
   print()
   print("hello from log_gbif_id")
   import pandas as pd
