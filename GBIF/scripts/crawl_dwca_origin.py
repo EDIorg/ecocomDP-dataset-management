@@ -57,8 +57,14 @@ pasta_endpoint = pkg_uri+'/'+transaction_id
 print("pasta_endpoint: ", pasta_endpoint)
 
 ##########
+### Check - this is a valid PASTA endpoint
+## TO DO
+
+
+##########
 ### Read the GBIF id from the local management file
-gbif_id = "a561399a-ea52-4e0a-95df-ac2beed53a78"
+### TO DO!
+gbif_id = "80d795f5-f3e0-41e5-b370-d20428fc07b0"
 
 ##########
 # Add PASTA endpoint to GBIF registration

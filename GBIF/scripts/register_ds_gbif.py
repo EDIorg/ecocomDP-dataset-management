@@ -5,7 +5,7 @@
 # 2. record the gbif dataset id in our management file, using dataset's level 2 (dwca) PASTA id as key
 
 # script inputs: 
-# level 2 id to register (must be a dwca, not yet checked!)
+# level 2 id to register (must be a dwca, although this is not yet checked!)
 # name of our management file
 
 import argparse
@@ -22,12 +22,31 @@ from functions import log_gbif_uuid
 
 # initialize parser
 parser = argparse.ArgumentParser()
-parser.add_argument("level2", help="id for level 2 dataset (dwca)")
-parser.add_argument("filename", help="name of mgt filename where ids are logged")
+parser.add_argument("level2", help="EDI identifier (scope.accession.revision) for level 2 dataset (DwC-A)")
+parser.add_argument("filename", help="name of mgt filename where IDs are logged")
 args = parser.parse_args()
 
 level2_id=args.level2
 mgt_filename=args.filename
+
+
+##########
+### Checks 
+##########
+
+
+# 1. check that this level2_id is a DwC-A
+# if yes, continue, else exit
+# ?? should it be possible to register a DwC-A before it exists ?? [no. this way, we do this check only once, here. ]
+
+
+# 2. check that level2_id does not already have a GBIF id registered
+# if no continue, else exit
+
+
+
+
+
 
 ##########
 ### configuration settings, GBIF
@@ -47,11 +66,12 @@ pasta_api = "https://pasta-s.lternet.edu/package/archive/eml/"
 
 ##########
 ### Initialize a dataset at GBIF
-# uses no dataset-specific info
+# Important: uses no dataset-specific info - its the equivalent of an EDI accession_no reservation.
 gbif_uuid = create_gbif_dataset(api, installation, organization, username, password, headers)
 
 ##########
-### Record the registration locally
+### Record the registration and assign to an EDI package
+# We are in control of the EDI-id to GBIF-id relationship
 df = log_gbif_uuid(mgt_filename, level2_id, gbif_uuid)
 
 ##########
