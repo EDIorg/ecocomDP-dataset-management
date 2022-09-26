@@ -58,12 +58,12 @@ print("pasta_endpoint: ", pasta_endpoint)
 
 ##########
 ### Check - this is a valid PASTA endpoint
-## TO DO
+## TO DO - write this check
 
 
 ##########
 ### Read the GBIF id from the local management file
-### TO DO!
+### TO DO - rm hard codeing
 gbif_id = "80d795f5-f3e0-41e5-b370-d20428fc07b0"
 
 ##########
