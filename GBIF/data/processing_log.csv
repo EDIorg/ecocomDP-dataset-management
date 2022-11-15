@@ -1,16 +1,16 @@
-L0,L1,L2_dwca,gbif_id,id2,id3
-edi.1,edi.2,edi.3,1e7eed9f-6924-43e0-b5bf-659b35ee0e44,2222,3333
-edi.11,edi.12,edi.13,qwrqwerqwerqwer,bbbb,cccc
-edi.21.edi.22,edi.23,xxxx,yyyy,zzzz,
-knb-lter-hbr.81.7,edi.355.2,edi.941.3,TBD,0000,0000
-knb-lter-ntl.7,edi.303,edi.874.4,9848b6bf-81a3-4184-a23d-36ab312dab3d,0000,0000
-knb-lter-and.478.3,edi.359.2,edi.889.1,,,
-knb-lter-knz.87.8,edi.340.2,3edi.909.1,,,
-knb-lter-pie.405.2,edi.337.2,edi.934.1,,,
-knb-lter-vcr.166.17,edi.324.3,edi.929.2,,,
-knb-lter-cap.41.16,edi.254.2,edi.888.1,,,
-,,edi.xxx.x,this is a test ID,,
-,,edi.xxx.y,this is a test ID,,
-,,edi.yyy.1,e44c5367-9d09-4328-9a5a-d0f41fb22d61,,
-,,edi.zzz.1,8c30c4a7-2f63-4421-83c0-60f3d3b195b1,,
-,,edi.yyy.2,e44c5367-9d09-4328-9a5a-d0f41fb22d61,,
+id_local,id_gbif,crawled
+edi.3,1e7eed9f-6924-43e0-b5bf-659b35ee0e44,
+edi.13,qwrqwerqwerqwer,bbbb
+xxxx,yyyy,
+edi.941.3,TBD,0000
+edi.874.4,9848b6bf-81a3-4184-a23d-36ab312dab3d,0000
+edi.889.1,,
+3edi.909.1,,
+edi.934.1,,
+edi.929.2,,
+edi.888.1,,
+edi.xxx.x,this is a test ID,
+edi.xxx.y,this is a test ID,
+edi.yyy.1,e44c5367-9d09-4328-9a5a-d0f41fb22d61,
+edi.zzz.1,8c30c4a7-2f63-4421-83c0-60f3d3b195b1,
+edi.yyy.2,e44c5367-9d09-4328-9a5a-d0f41fb22d61,
