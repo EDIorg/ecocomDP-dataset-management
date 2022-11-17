@@ -27,10 +27,15 @@ def read_log(f):
     --------
     init_log : Initialize log file.
     """
-    required_cols = ['id_local', 'id_gbif', 'crawled']
-    log = pd.read_csv(f, delimiter=',', usecols=required_cols)
+    log = pd.read_csv(f, delimiter=',')
     log['crawled'] = pd.to_datetime(log['crawled'])
     return log
+
+
+def validate_log(df):
+    required_cols = {'id_local', 'id_gbif', 'crawled'}.issubset(set(df.columns))
+    if not required_cols:
+        raise ValueError('One or more required columns missing')
 
 
 def write_log(f):
