@@ -33,6 +33,19 @@ def read_log(f):
 
 
 def validate_log(df):
+    """
+    Validate log file contents
+
+    Parameters
+    ----------
+    df
+        Pandas dataframe.
+
+    Returns
+    -------
+    None
+
+    """
     required_cols = {'id_local', 'id_gbif', 'crawled'}.issubset(set(df.columns))
     if not required_cols:
         raise ValueError('One or more required columns missing')
