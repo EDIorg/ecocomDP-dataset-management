@@ -41,6 +41,7 @@ def read_log(f):
     init_log : Initialize log file.
     """
     log = pd.read_csv(f, delimiter=',')
+    validate_log(log)
     log['crawled'] = pd.to_datetime(log['crawled'])
     return log
 
