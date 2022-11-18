@@ -2,7 +2,20 @@ import pandas as pd
 
 
 def init_log(f):
-    pass
+    """
+    Initialize log and write to file
+
+    Parameters
+    ----------
+    f
+        Log file path.
+
+    Returns
+    -------
+    None
+    """
+    df = pd.DataFrame(columns=['id_local', 'id_gbif', 'crawled'])
+    df.to_csv(f, index=False, mode='x')
 
 
 def read_log(f):
