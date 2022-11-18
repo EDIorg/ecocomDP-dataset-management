@@ -63,6 +63,11 @@ def validate_log(df):
     required_cols = {'id_local', 'id_gbif', 'crawled'}.issubset(set(df.columns))
     if not required_cols:
         raise ValueError('One or more required columns missing')
+    duplicate_keys = df.duplicated(subset=['id_local', 'id_gbif'])
+    if any(duplicate_keys):
+        i = duplicate_keys.index[duplicate_keys].to_list()
+        msg = 'Duplicate keys ("id_local" + "id_gbif") at row: ' + ', '.join([str(x+1) for x in i])
+        raise ValueError(msg)
 
 
 def write_log(f):
