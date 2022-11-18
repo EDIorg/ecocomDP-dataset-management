@@ -16,9 +16,9 @@ def test_read_log():
 
 
 def test_validate_log(log):
-    bad_log = log[['id_local', 'id_gbif']]  # Log missing a required column
+    log_missing_column = log[['id_local', 'id_gbif']]
     with pytest.raises(ValueError):
-        utils.validate_log(bad_log)
+        utils.validate_log(log_missing_column)
     log_duplicate_keys = pd.concat([log, log.iloc[[-1]]])
     with pytest.raises(ValueError):
         utils.validate_log(log_duplicate_keys)

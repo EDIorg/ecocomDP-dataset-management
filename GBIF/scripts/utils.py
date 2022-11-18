@@ -60,8 +60,8 @@ def validate_log(df):
     None
 
     """
-    required_cols = {'id_local', 'id_gbif', 'crawled'}.issubset(set(df.columns))
-    if not required_cols:
+    missing_cols = not {'id_local', 'id_gbif', 'crawled'}.issubset(set(df.columns))
+    if missing_cols:
         raise ValueError('One or more required columns missing')
     duplicate_keys = df.duplicated(subset=['id_local', 'id_gbif'])
     if any(duplicate_keys):
